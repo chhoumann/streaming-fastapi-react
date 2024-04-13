@@ -1,0 +1,30 @@
+[project]
+name = "streaming"
+version = "0.1.0"
+description = "Add your description here"
+authors = [
+    { name = "Christian Bager Bach Houmann", email = "christian@bagerbach.com" }
+]
+dependencies = [
+    "fastapi>=0.110.1",
+    "uvicorn>=0.29.0",
+]
+readme = "README.md"
+requires-python = ">= 3.8"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.rye]
+managed = true
+dev-dependencies = []
+
+[tool.hatch.metadata]
+allow-direct-references = true
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/streaming"]
+
+[tool.rye.scripts]
+start = "uvicorn src.streaming.__main__:app --reload"
